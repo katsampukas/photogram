@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'paperclip', '~> 4.2' #at the writing of this post
+gem 'paperclip', '~> 5.2.0'  #at the writing of this post
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'

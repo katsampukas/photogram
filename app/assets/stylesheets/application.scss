@@ -31,7 +31,7 @@ html {
 body {
   min-height: 100vh;
   background-color: #fafafa;
-  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: verdana, Arial, sans-serif;
 }
 
 // Navbar
@@ -46,9 +46,18 @@ body {
 }
 
 .navbar-brand {
+  padding: 0;
 
   a {
     color: #125688;
+    background: image-url("logo.svg") 0 0 no-repeat;
+    background-size: contain;
+    width: 160px;
+    display: block;
+    height: 30px;
+    font-size: 0;
+    color: transparent;
+    margin: 11px 0 0 0;
   }
 }
 

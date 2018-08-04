@@ -16,8 +16,7 @@
         </div>
         <%= post.caption %>
       </div>
-      <hr>
-      <% if post.comments %>
+      <% if false && post.comments %>
         <% post.comments.each do |comment| %>
           <div class="comment">
             <div class="user-name">
@@ -37,7 +36,7 @@
         <% end %>
       <% end %>
     </div>
-    <% if user_signed_in? %>
+    <% if false && user_signed_in? %>
       <div class="comment-like-form row">
         <div class="like-button col-sm-1">
           <span class="glyphicon glyphicon-heart-empty"></span>

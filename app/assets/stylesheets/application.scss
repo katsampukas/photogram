@@ -55,22 +55,23 @@ body {
 
   a {
     color: #125688;
-    background: image-url("logo.svg") 0 0 no-repeat;
+    background: image-url("logo.png") 0 0 no-repeat;
     background-size: contain;
-    width: 160px;
+    width: 200px;
     display: block;
-    height: 30px;
+    height: 45px;
     font-size: 0;
     color: transparent;
-    margin: 11px 0 0 0;
+    margin: 9px 0 0 0;
   }
 }
 
 .navbar-default {
   background-color: #fff;
-  height: 54px;
+  height: 58px;
 
   .navbar-nav li a {
+    margin-top: 3px;
     color: #125688;
   }
 }
@@ -78,7 +79,7 @@ body {
 // Posts
 
 .posts-wrapper {
-  padding-top: 40px;
+  padding-top: 30px;
   margin: 0 auto;
   max-width: 642px;
   width: 100%;
@@ -90,7 +91,7 @@ body {
   border-style: solid;
   border-radius: 3px;
   border-width: 1px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 
   .post-head {
     flex-direction: row;

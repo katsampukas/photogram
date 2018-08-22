@@ -8,8 +8,13 @@
         <%= post.user.user_name %>
       </div>
       <%= post.caption %>
+      <% if post.comments && current_page?(root_path) %>
+        <span class="pull-right">
+          <%= link_to "#{post.comments.count} σχόλια", post_path(post) %>
+        </span>
+      <% end %>
     </div>
-    <% if false && post.comments %>
+    <% if post.comments && !current_page?(root_path) %>
       <% post.comments.each do |comment| %>
         <div class="comment">
           <div class="user-name">
@@ -18,27 +23,31 @@
           <div class="comment-content">
             <%= comment.content %>
           </div>
-          <% if user_signed_in? %>
-            <% if comment.user == current_user %>
-              <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do %>
-                <span class="glyphicon glyphicon-remove delete-comment"></span>
-              <% end %>
+          <% if comment.user == current_user %>
+            <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <span class="glyphicon glyphicon-remove delete-comment"></span>
             <% end %>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-  <% if false && user_signed_in? %>
-    <div class="comment-like-form row">
-      <div class="like-button col-sm-1">
-        <span class="glyphicon glyphicon-heart-empty"></span>
+  <% if !current_page?(root_path) %>
+    <% if user_signed_in? %>
+      <div class="comment-like-form row">
+        <div class="comment-form">
+          <%= form_for [post, post.comments.new] do |f| %>
+            <%= f.text_field :content, placeholder: 'Add a comment...' %>
+          <% end %>
+        </div>
       </div>
-      <div class="comment-form col-sm-11">
-        <%= form_for [post, post.comments.new] do |f| %>
-          <%= f.text_field :content, placeholder: 'Add a comment...' %>
-        <% end %>
+    <% else %>
+      <div class="comment-like-form row">
+        <%= link_to "Συνδέσου", new_user_session_path %> ή
+        <%= link_to "κάνε εγγραφή", new_user_registration_path %>
+        για να γράψεις ένα σχόλιο...
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
+
